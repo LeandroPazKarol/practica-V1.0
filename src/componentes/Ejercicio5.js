@@ -11,13 +11,13 @@ export const Ejercicio5 = () => {
     const [indice, setIndice] = useState(0);
     const [fade, setFade] = useState(true);
 
-    useEffect(() => {
-        const intervalo = setInterval(() => {
-            cambiarImagen(indice + 1);
-        }, 3000);
+   useEffect(() => {
+    const intervalo = setInterval(() => {
+        setIndice((prev) => (prev + 1) % imagenes.length);
+    }, 3000);
 
-        return () => clearInterval(intervalo);
-    }, [indice]);
+    return () => clearInterval(intervalo);
+}, [imagenes.length]);
 
 
     const cambiarImagen = (nuevoIndice) => {

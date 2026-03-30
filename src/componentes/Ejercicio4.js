@@ -12,20 +12,20 @@ export const Ejercicio4 = () => {
     const [fade, setFade] = useState(true);
 
     
-    useEffect(() => {
-        const intervalo = setInterval(() => {
+   useEffect(() => {
+    const intervalo = setInterval(() => {
 
-            setFade(false); // para desaparecer
+        setFade(false);
 
-            setTimeout(() => {
-                setIndice((prev) => (prev + 1) % imagenes.length);
-                setFade(true); // aparece la nueva imagen
-            }, 500); // tiempo del fade
+        setTimeout(() => {
+            setIndice((prev) => (prev + 1) % imagenes.length);
+            setFade(true);
+        }, 500);
 
-        }, 3000); // cambia cada 3 segundos
+    }, 3000);
 
-        return () => clearInterval(intervalo);
-    }, []);
+    return () => clearInterval(intervalo);
+}, [imagenes.length]);
 
     return (
         <div style={{ textAlign: 'center' }}>
